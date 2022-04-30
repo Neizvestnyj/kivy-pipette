@@ -1,13 +1,13 @@
 <BorderImage>
     canvas.after:
         Color:
-            rgba: (0, 0, 0, 0.5) if self.source != 'transparent.png' else (0, 0, 0, 0)
+            rgba: (0, 0, 0, 0.5) if root.border_ else (0, 0, 0, 0)
         Line:
             width: 1.2
             rectangle: (self.x, self.y, self.width, self.height)
 
         Color:
-            rgba: (1, 1, 1, 0.5) if self.source != 'transparent.png' else (0, 0, 0, 0)
+            rgba: (1, 1, 1, 0.5) if root.border_ else (0, 0, 0, 0)
         Line:
             width: 1.2
             rectangle: (self.x - 2.4, self.y - 2.4, self.width + 4.8, self.height + 4.8)
