@@ -150,7 +150,6 @@ class PipetteApp(MDApp):
         return pil_img
 
     def get_pixel(self, x: float, y: float):
-        coords = int(x), 600 - int(y)  # change coordination start
 
         if self.screen.ids.scr_manager.current == '1':
             img = self.get_widget_fbo(self.screen.ids.layout_1)
@@ -159,7 +158,7 @@ class PipetteApp(MDApp):
         else:
             return
 
-        color = ()
+        coords = int(x), img.height - int(y)
 
         try:
             color = img.getpixel(coords)
@@ -168,7 +167,7 @@ class PipetteApp(MDApp):
             self.mouse.label_color.text = str(color)
             print('Area color:', color)
         except IndexError:
-            pass
+            color = ()
 
         return color
 
